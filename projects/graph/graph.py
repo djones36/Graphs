@@ -150,17 +150,15 @@ def bfs(self, starting_vertex, destination_vertex):
             # Grab the last vertex from the PATH
             # Check if vertex is the destination_vertex aka target
                 # if so, return the PATH
-            v = q.dequeue()
-            # Check if it's been visited...
-            # If it has not been visitied...
-            if v not in visited:
+        v = q.dequeue()
+        # Check if it's been visited...
+        # If it has not been visitied...
+        if v not in visited:
                 # Mark it as visited
-                print(v)
-                visited.add(v)
-                # Then add a PATH to all neighbors to the back of the queue
-                # Make a copy of the PATH before adding to queue
-
-    def dfs(self, starting_vertex, destination_vertex):
+            print(v)
+            visited.add(v)
+            # Then add a PATH to all neighbors to the back of the queue
+            # Make a copy of the PATH before adding to queue
 
 
 ​
