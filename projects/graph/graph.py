@@ -13,171 +13,180 @@ class Graph:
 
 
 def __init__(self):
-        self.vertices = {}
+    self.vertices = {}
 
 
 ​
 
 
 def add_vertex(self, vertex_id):
-        """
-        Add a vertex to the graph.
-        """
-        if vertex_id in self.vertices:
-            print("WARNING: That vertex already exists")
-        else:
-            self.vertices[vertex_id] = set()
+    """
+    Add a vertex to the graph.
+    """
+    if vertex_id in self.vertices:
+        print("WARNING: That vertex already exists")
+    else:
+        self.vertices[vertex_id] = set()
 
 
 ​
 
 
 def add_edge(self, v1, v2):
-        """
-        Add a directed edge to the graph.
-        """
-        if v1 in self.vertices and v2 in self.vertices:
-            self.vertices[v1].add(v2)
-        else:
-            raise IndexError("That vertex does not exist!")
+    """
+    Add a directed edge to the graph.
+    """
+    if v1 in self.vertices and v2 in self.vertices:
+        self.vertices[v1].add(v2)
+    else:
+        raise IndexError("That vertex does not exist!")
 
 
 ​
 
 
 def get_neighbors(self, vertex_id):
-        """
-        Get all neighbors (edges) of a vertex.
-        """
-        return self.vertices[vertex_id]
+    """
+    Get all neighbors (edges) of a vertex.
+    """
+    return self.vertices[vertex_id]
 
 
 ​
 
 
 def bft(self, starting_vertex):
-        """
-        Print each vertex in breadth-first order
-        beginning from starting_vertex.
-        """
-        # Create an empty queue
-        q = Queue()
-        # Add the starting vertex_id to the queue
-        q.enqueue(starting_vertex)
-        # Create an empty set to store visited nodes
-        visited = set()
-        # While the queue is not empty...
-        while q.size() > 0:
-            # Dequeue, the first vertex
-            v = q.dequeue()
-            # Check if it's been visited
-            # If it has not been visited...
-            if v not in visited:
-                # Mark it as visited
-                print(v)
-                visited.add(v)
-                # Then add all neighbors to the back of the queue
-                for neighbor in self.get_neighbors(v):
-                    q.enqueue(neighbor)
+    """
+    Print each vertex in breadth-first order
+    beginning from starting_vertex.
+    """
+    # Create an empty queue
+    q = Queue()
+    # Add the starting vertex_id to the queue
+    q.enqueue(starting_vertex)
+    # Create an empty set to store visited nodes
+    visited = set()
+    # While the queue is not empty...
+    while q.size() > 0:
+        # Dequeue, the first vertex
+        v = q.dequeue()
+        # Check if it's been visited
+        # If it has not been visited...
+        if v not in visited:
+            # Mark it as visited
+            print(v)
+            visited.add(v)
+            # Then add all neighbors to the back of the queue
+            for neighbor in self.get_neighbors(v):
+                q.enqueue(neighbor)
 
 
 ​
 
 
 def dft(self, starting_vertex):
-        """
-        Print each vertex in depth-first order
-        beginning from starting_vertex.
-        """
-        # Create an empty stack
-        s = Stack()
-        # Push the starting vertex_id to the stack
-        s.push(starting_vertex)
-        # Create an empty set to store visited nodes
-        visited = set()
-        # While the stack is not empty...
-        while s.size() > 0:
-            # Pop the first vertex
-            v = s.pop()
-            # Check if it's been visited
-            # If it has not been visited...
-            if v not in visited:
-                # Mark it as visited
-                print(v)
-                visited.add(v)
-                # Then push all neighbors to the top of the stack
-                for neighbor in self.get_neighbors(v):
-                    s.push(neighbor)
+    """
+    Print each vertex in depth-first order
+    beginning from starting_vertex.
+    """
+    # Create an empty stack
+    s = Stack()
+    # Push the starting vertex_id to the stack
+    s.push(starting_vertex)
+    # Create an empty set to store visited nodes
+    visited = set()
+    # While the stack is not empty...
+    while s.size() > 0:
+        # Pop the first vertex
+        v = s.pop()
+        # Check if it's been visited
+        # If it has not been visited...
+        if v not in visited:
+            # Mark it as visited
+            print(v)
+            visited.add(v)
+            # Then push all neighbors to the top of the stack
+            for neighbor in self.get_neighbors(v):
+                s.push(neighbor)
 
 
 ​
 
 
 def dft_recursive(self, starting_vertex):
-        """
-        Print each vertex in depth-first order
-        beginning from starting_vertex.
+    """
+    Print each vertex in depth-first order
+    beginning from starting_vertex.
 ​
-        This should be done using recursion.
-        """
-        # Check if the node is visited
-        # Hint: https://docs.python-guide.org/writing/gotchas/
-        # If not...
-        # Mark it as visited
-        # Print
-        # Call DFT_Recursive on each child
-        pass  # TODO
+    This should be done using recursion.
+    """
+    # Check if the node is visited
+    # Hint: https://docs.python-guide.org/writing/gotchas/
+    # If not...
+    # Mark it as visited
+    # Print
+    # Call DFT_Recursive on each child
+    pass  # TODO
 
 
 ​
 
 
 def bfs(self, starting_vertex, destination_vertex):
-        """
-        Return a list containing the shortest path from
-        starting_vertex to destination_vertex in
-        breath-first order.
-        """
-        # Create an empty queue
-        # Add A PATH TO the starting vertex_id to the queue
-        # Create an empty set to store visited nodes
-        # While the queue is not empty...
-        # Dequeue, the first PATH
-        # GRAB THE LAST VERTEX FROM THE PATH
-        # CHECK IF IT'S THE TARGET
-        # IF SO, RETURN THE PATH
-        # Check if it's been visited
-        # If it has not been visited...
-        # Mark it as visited
-        # Then add A PATH TO all neighbors to the back of the queue
-        # (Make a copy of the path before adding)
-        pass  # TODO
+    """
+    Return a list containing the shortest path from
+    starting_vertex to destination_vertex in
+    breath-first order.
+    """
+    # Create an empty queue
+    q = Queue()
+    # Add a PATH TO the starting vertex_id to the queue
+    q.enqueue(starting_vertex)
+    # Create an empty set to store the visited nodes
+    visited = set()
+    # while the queue is not empty...
+    while q.size() > 0:
+            # Dequeue the first PATH ...
+            # Grab the last vertex from the PATH
+            # Check if vertex is the destination_vertex aka target
+                # if so, return the PATH
+            v = q.dequeue()
+            # Check if it's been visited...
+            # If it has not been visitied...
+            if v not in visited:
+                # Mark it as visited
+                print(v)
+                visited.add(v)
+                # Then add a PATH to all neighbors to the back of the queue
+                # Make a copy of the PATH before adding to queue
+
+    def dfs(self, starting_vertex, destination_vertex):
 
 
 ​
 
 
 def dfs(self, starting_vertex, destination_vertex):
-        """
-        Return a list containing a path from
-        starting_vertex to destination_vertex in
-        depth-first order.
-        """
-        pass  # TODO
+    """
+    Return a list containing a path from
+    starting_vertex to destination_vertex in
+    depth-first order.
+    """
+    pass  # TODO
 
 
 ​
 
 
 def dfs_recursive(self, starting_vertex, destination_vertex):
-        """
-        Return a list containing a path from
-        starting_vertex to destination_vertex in
-        depth-first order.
+    """
+    Return a list containing a path from
+    starting_vertex to destination_vertex in
+    depth-first order.
 ​
-        This should be done using recursion.
-        """
-        pass  # TODO
+    This should be done using recursion.
+    """
+    pass  # TODO
 
 
 ​
