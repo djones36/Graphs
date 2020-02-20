@@ -29,6 +29,32 @@ player = Player(world.starting_room)
 traversal_path = ['n', 'n']
 # traversal_path = []
 
+# My code
+'''  Trying to understand:
+- find what room a player is currently in
+- maybe use the player methods in the search
+- use get_exits from room def
+
+    
+
+vertex = current rooms
+edges = paths directions
+'''
+# BFS to search the paths through the maze
+
+
+def bfs(starting_room_id)
+
+
+q = Queue()
+q.enqueue([starting_room_id])
+visited = set()
+
+# while queue full
+while q.size() > 0:
+    # grab the first path
+    path = q.dequeue()
+
 
 # TRAVERSAL TEST
 visited_rooms = set()
