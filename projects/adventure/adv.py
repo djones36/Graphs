@@ -34,9 +34,10 @@ traversal_path = ['n', 'n']
 - find what room a player is currently in
 - maybe use the player methods in the search
 - use get_exits from room def
-
+Helpful methods
+player.current_room.id`, `player.current_room.get_exits()` and `player.travel(direction)
     
-
+Start with 2a depth-first search
 vertex = current rooms
 edges = paths directions
 '''
