@@ -26,8 +26,8 @@ world.print_rooms()
 player = Player(world.starting_room)
 
 # Fill this out with directions to walk
-traversal_path = ['n', 'n']
-# traversal_path = []
+# traversal_path = ['n', 'n']
+traversal_path = []
 
 # My code
 '''  Trying to understand:
@@ -40,38 +40,49 @@ player.current_room.id`, `player.current_room.get_exits()` and `player.travel(di
 Start with 2a depth-first search
 vertex = current rooms
 edges = paths directions
+# Depth-first traversal following hint
 '''
+
+
+def traversal(player, traversal_path):
+
+    for i in player.current_room.get_exits():
+        print("Direction: ", i)
+
+
+traversal(player, traversal_path)
+
 # BFS to search the paths through the maze
 
 
-def bfs(starting_room_id)
+# def bfs(starting_room_id)
 
 
-q = Queue()
-q.enqueue([starting_room_id])
-visited = set()
+# q = Queue()
+# q.enqueue([starting_room_id])
+# visited = set()
 
-# while queue full
-while q.size() > 0:
-    # grab the first path
-    path = q.dequeue()
+# # while queue full
+# while q.size() > 0:
+#     # grab the first path
+#     path = q.dequeue()
 
 
 # TRAVERSAL TEST
-visited_rooms = set()
-player.current_room = world.starting_room
-visited_rooms.add(player.current_room)
+# visited_rooms = set()
+# player.current_room = world.starting_room
+# visited_rooms.add(player.current_room)
 
-for move in traversal_path:
-    player.travel(move)
-    visited_rooms.add(player.current_room)
+# for move in traversal_path:
+#     player.travel(move)
+#     visited_rooms.add(player.current_room)
 
-if len(visited_rooms) == len(room_graph):
-    print(
-        f"TESTS PASSED: {len(traversal_path)} moves, {len(visited_rooms)} rooms visited")
-else:
-    print("TESTS FAILED: INCOMPLETE TRAVERSAL")
-    print(f"{len(room_graph) - len(visited_rooms)} unvisited rooms")
+# if len(visited_rooms) == len(room_graph):
+#     print(
+#         f"TESTS PASSED: {len(traversal_path)} moves, {len(visited_rooms)} rooms visited")
+# else:
+#     print("TESTS FAILED: INCOMPLETE TRAVERSAL")
+#     print(f"{len(room_graph) - len(visited_rooms)} unvisited rooms")
 
 
 #######
